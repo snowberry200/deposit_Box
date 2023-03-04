@@ -4,9 +4,11 @@ import 'package:deposit_company/tabbars/submit_payment.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'layout/layout.dart';
-import 'tabbars/safe_deposit_boxes.dart';
-import 'tabbars/the_safe_deposiit_company.dart';
+
+import '../../tabbars/safe_deposit_boxes.dart';
+import '../../tabbars/the_safe_deposiit_company.dart';
+import '../layout.dart';
+
 
 class NestedWidget extends StatefulWidget {
   const NestedWidget({

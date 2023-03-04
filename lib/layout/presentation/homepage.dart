@@ -1,9 +1,10 @@
+import 'package:deposit_company/layout/presentation/sign_in.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'layout/layout.dart';
-import 'layout/register.dart';
-import 'tabbars/contact.dart';
-import 'tabbars/fandq.dart';
+import '../layout.dart';
+import 'register.dart';
+import '../../tabbars/contact.dart';
+import '../../tabbars/fandq.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -17,9 +18,8 @@ class _HomePageState extends State<HomePage> {
   ScrollController scrollController = ScrollController();
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
+    return Scaffold(
         backgroundColor: CupertinoColors.lightBackgroundGray,
-
         appBar: Layout.isMobile(context)
             ? AppBar(
                 backgroundColor: const Color.fromARGB(255, 19, 42, 82),
@@ -33,6 +33,7 @@ class _HomePageState extends State<HomePage> {
                             value: 0,
                             child: Center(
                                 child: TextButton(
+                                  
                                     child: const Text(
                                       'Sign in',
                                       style: TextStyle(
@@ -41,7 +42,12 @@ class _HomePageState extends State<HomePage> {
                                           letterSpacing: 1.2,
                                           fontWeight: FontWeight.w600),
                                     ),
-                                    onPressed: () {})),
+                                    onPressed: () {
+                                      Navigator.of(context).push(
+                                          MaterialPageRoute(
+                                              builder: (context) =>
+                                                 const Accessscreen()));
+                                    })),
                           ),
                           PopupMenuItem<dynamic>(
                             mouseCursor: MouseCursor.defer,
@@ -113,13 +119,11 @@ class _HomePageState extends State<HomePage> {
                             )),
                           ),
                         ]))
-                        :
-           AppBar(
-                  toolbarHeight: 0,
-                  elevation: 0,
-                  backgroundColor: CupertinoColors.white,
-              
-        ),
+            : AppBar(
+                toolbarHeight: 0,
+                elevation: 0,
+                backgroundColor: CupertinoColors.white,
+              ),
         body: const Layout());
   }
 }

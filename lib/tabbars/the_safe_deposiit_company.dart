@@ -1,4 +1,4 @@
-import 'package:deposit_company/layout/register.dart';
+import 'package:deposit_company/layout/presentation/register.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
