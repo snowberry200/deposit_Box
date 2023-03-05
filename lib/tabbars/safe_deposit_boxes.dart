@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import '../presentation/sign_in.dart';
+
 class SafeDepositBoxes extends StatefulWidget {
   const SafeDepositBoxes({super.key});
 
@@ -39,10 +41,11 @@ class _SafeDepositBoxesState extends State<SafeDepositBoxes> {
                       flex: 3,
                       child: SizedBox(
                         child: ScrollConfiguration(
-                          behavior: ScrollConfiguration.of(context).copyWith(scrollbars: false),
+                          behavior: ScrollConfiguration.of(context)
+                              .copyWith(scrollbars: false),
                           child: ListView(
                             primary: true,
-                           // controller: scorllcontrollerOne,
+                            // controller: scorllcontrollerOne,
                             children: [
                               const Text.rich(
                                   softWrap: true,
@@ -54,13 +57,16 @@ class _SafeDepositBoxesState extends State<SafeDepositBoxes> {
                                         color: Colors.black,
                                         fontWeight: FontWeight.bold),
                                   )),
-                              const SizedBox(
-                                height: 30,
-                              ),
+                              
                               Align(
                                 alignment: Alignment.topLeft,
                                 child: TextButton(
-                                  onPressed: () {},
+                                  onPressed: () {
+                                    Navigator.of(context).push(
+                                        MaterialPageRoute(
+                                            builder: (context) =>
+                                                const AccessScreen()));
+                                  },
                                   child: const Text.rich(
                                     TextSpan(
                                       text: 'Home',
@@ -75,14 +81,15 @@ class _SafeDepositBoxesState extends State<SafeDepositBoxes> {
                                   ),
                                 ),
                               ),
-                              const SizedBox(height: 30),
                               Align(
                                 alignment: Alignment.topLeft,
                                 child: TextButton(
-                                  onPressed: () {},
+                                  onPressed: () {
+                                    
+                                  },
                                   child: const Text.rich(
                                     TextSpan(
-                                      text: 'Safe Deposit Boxes',
+                                      text: 'Safe Deposit Company',
                                       style: TextStyle(
                                           letterSpacing: 1.2,
                                           wordSpacing: 1.3,
@@ -99,7 +106,8 @@ class _SafeDepositBoxesState extends State<SafeDepositBoxes> {
                                 padding: const EdgeInsets.only(
                                     right: 40.0, top: 40, bottom: 20),
                                 child: Row(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
                                     children: [
                                       Container(
                                         width: 300,
@@ -180,7 +188,8 @@ class _SafeDepositBoxesState extends State<SafeDepositBoxes> {
                                 padding: const EdgeInsets.only(
                                     right: 40.0, top: 0, bottom: 20),
                                 child: Row(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
                                     children: [
                                       Container(
                                         width: 300,
@@ -237,7 +246,7 @@ class _SafeDepositBoxesState extends State<SafeDepositBoxes> {
                       child: Padding(
                         padding: const EdgeInsets.only(top: 20.0),
                         child: ListView(
-                          controller : scrollcontrollerTwo,
+                          controller: scrollcontrollerTwo,
                           children: const [
                             Center(
                                 child: Text('THE SAFE DEPOSIT COMPANY',

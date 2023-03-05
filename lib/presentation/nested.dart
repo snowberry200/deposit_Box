@@ -5,9 +5,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
-import '../../tabbars/safe_deposit_boxes.dart';
-import '../../tabbars/the_safe_deposiit_company.dart';
-import '../layout.dart';
+import '../tabbars/safe_deposit_boxes.dart';
+import '../tabbars/the_safe_deposiit_company.dart';
+import '../layout/layout.dart';
 
 
 class NestedWidget extends StatefulWidget {

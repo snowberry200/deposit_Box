@@ -1,6 +1,8 @@
-import 'package:deposit_company/layout/presentation/register.dart';
+import 'package:deposit_company/presentation/register.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
+import '../layout/layout.dart';
 
 class SafeDepositCompany extends StatefulWidget {
   const SafeDepositCompany({super.key});
@@ -43,21 +45,29 @@ class _SafeDepositCompanyState extends State<SafeDepositCompany> {
                     primary: true,
                     //controller: scrollcontrollerOne,
                     children: <Widget>[
-                      const Text.rich(
+                      const SizedBox(
+                        height: 30,
+                      ),
+                      Text.rich(
                           softWrap: true,
                           TextSpan(
                             text: 'The Safe Deposit Company',
-                            style: TextStyle(
-                                letterSpacing: 1.2,
-                                fontSize: 35,
-                                color: Colors.black,
-                                fontWeight: FontWeight.bold),
+                            style: Layout.isMobile(context)
+                                ? const TextStyle(
+                                    letterSpacing: 1.2,
+                                    fontSize: 18,
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.bold)
+                                : const TextStyle(
+                                    letterSpacing: 1.2,
+                                    fontSize: 35,
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.bold),
                           )),
                       const SizedBox(
                         height: 30,
                       ),
                       TextButton(
-                        
                         onPressed: () {
                           Navigator.of(context).push(MaterialPageRoute(
                               builder: (context) => const Register()));
@@ -68,8 +78,7 @@ class _SafeDepositCompanyState extends State<SafeDepositCompany> {
                             TextSpan(
                               text: 'Register',
                               style: TextStyle(
-                                
-                                backgroundColor: Colors.transparent,
+                                  backgroundColor: Colors.transparent,
                                   letterSpacing: 1.2,
                                   fontSize: 15,
                                   //decorationStyle: TextDecorationStyle.wavy,
@@ -100,7 +109,7 @@ class _SafeDepositCompanyState extends State<SafeDepositCompany> {
                           style: TextStyle(
                               wordSpacing: 1.2,
                               letterSpacing: 1.2,
-                              fontSize: 25,
+                              fontSize: 22,
                               decorationStyle: TextDecorationStyle.dashed,
                               color: Color.fromARGB(255, 40, 84, 162)))),
                       const SizedBox(
@@ -111,7 +120,7 @@ class _SafeDepositCompanyState extends State<SafeDepositCompany> {
                           style: TextStyle(
                               letterSpacing: 1.2,
                               wordSpacing: 1.2,
-                              fontSize: 14,
+                              fontSize: 12,
                               decorationStyle: TextDecorationStyle.dashed,
                               color: Colors.black)),
                       const SizedBox(height: 30),
@@ -120,7 +129,7 @@ class _SafeDepositCompanyState extends State<SafeDepositCompany> {
                           style: TextStyle(
                               letterSpacing: 1.2,
                               wordSpacing: 1.2,
-                              fontSize: 14,
+                              fontSize: 12,
                               decorationStyle: TextDecorationStyle.dashed,
                               color: Colors.black)),
                       const SizedBox(height: 30),
@@ -129,7 +138,7 @@ class _SafeDepositCompanyState extends State<SafeDepositCompany> {
                           style: TextStyle(
                               letterSpacing: 1.2,
                               wordSpacing: 1.2,
-                              fontSize: 14,
+                              fontSize: 12,
                               decorationStyle: TextDecorationStyle.dashed,
                               color: Colors.black)),
                       const SizedBox(
@@ -141,7 +150,7 @@ class _SafeDepositCompanyState extends State<SafeDepositCompany> {
                           style: TextStyle(
                               fontStyle: FontStyle.italic,
                               letterSpacing: 1.2,
-                              fontSize: 15,
+                              fontSize: 12,
                               //decorationStyle: TextDecorationStyle.wavy,
                               color: Colors.black,
                               fontWeight: FontWeight.w500,
@@ -155,27 +164,36 @@ class _SafeDepositCompanyState extends State<SafeDepositCompany> {
                         child: Row(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Container(
-                                width: 300,
-                                height: 350,
-                                decoration: ShapeDecoration(
-                                    shape: BeveledRectangleBorder(
-                                      side: const BorderSide(
-                                          color: CupertinoColors
-                                              .lightBackgroundGray,
-                                          width: 2),
-                                      borderRadius: BorderRadius.circular(15),
+                              Expanded(
+                                child: SizedBox(
+                                    child: Row(
+                                  children: [
+                                    Container(
+                                      width:
+                                          Layout.isMobile(context) ? 250 : 300,
+                                      height: 350,
+                                      decoration: ShapeDecoration(
+                                          shape: BeveledRectangleBorder(
+                                            side: const BorderSide(
+                                                color: CupertinoColors
+                                                    .lightBackgroundGray,
+                                                width: 2),
+                                            borderRadius:
+                                                BorderRadius.circular(15),
+                                          ),
+                                          image: const DecorationImage(
+                                            filterQuality: FilterQuality.high,
+                                            image: AssetImage(
+                                              "image/black.jpeg",
+                                            ),
+                                            fit: BoxFit.cover,
+                                          )),
                                     ),
-                                    image: const DecorationImage(
-                                      filterQuality: FilterQuality.high,
-                                      image: AssetImage(
-                                        "image/black.jpeg",
-                                      ),
-                                      fit: BoxFit.cover,
-                                    )),
+                                    const SizedBox(width: 15),
+                                    const SizedBox()
+                                  ],
+                                )),
                               ),
-                              const SizedBox(width: 30),
-                              const SizedBox()
                             ]),
                       ),
                       const SizedBox(height: 50),
@@ -183,7 +201,7 @@ class _SafeDepositCompanyState extends State<SafeDepositCompany> {
                           style: TextStyle(
                               letterSpacing: 1.2,
                               wordSpacing: 1.2,
-                              fontSize: 20,
+                              fontSize: 18,
                               fontWeight: FontWeight.bold,
                               fontStyle: FontStyle.italic,
                               color: Colors.black)),
@@ -192,9 +210,12 @@ class _SafeDepositCompanyState extends State<SafeDepositCompany> {
                           style: TextStyle(
                               letterSpacing: 1.2,
                               wordSpacing: 1.2,
-                              fontSize: 14,
+                              fontSize: 12,
                               // fontStyle: FontStyle.italic,
-                              color: Colors.black))
+                              color: Colors.black)),
+                      const SizedBox(
+                        height: 30,
+                      ),
                     ],
                   ),
                 ),
@@ -202,57 +223,60 @@ class _SafeDepositCompanyState extends State<SafeDepositCompany> {
           const SizedBox(width: 40),
           Expanded(
             flex: 1,
-            child: SizedBox(child:
-            SingleChildScrollView(
-              child: Column(children: const [
-                    Center(
-                  child: Text('THE SAFE DEPOSIT COMPANY',
-                      style: TextStyle(
-                          fontWeight: FontWeight.w800,
-                          fontSize: 13,
-                          letterSpacing: 1.2))),
-              SizedBox(height: 20),
-              Divider(
-                color: Colors.black,
-                thickness: 0.2,
+            child: SizedBox(
+                child: SingleChildScrollView(
+              child: Column(
+                children: const [
+                  SizedBox(
+                    height: 30,
+                  ),
+                  Center(
+                      child: Text('THE SAFE DEPOSIT COMPANY',
+                          style: TextStyle(
+                              fontWeight: FontWeight.w800,
+                              fontSize: 13,
+                              letterSpacing: 1.2))),
+                  SizedBox(height: 20),
+                  Divider(
+                    color: Colors.black,
+                    thickness: 0.2,
+                  ),
+                  SizedBox(height: 10),
+                  Text(
+                    "Phone: 314-991-3858",
+                    style: TextStyle(fontSize: 13, fontWeight: FontWeight.w600),
+                  ),
+                  SizedBox(height: 10),
+                  Text(
+                    "Hours\n\nMon-Fri: 9 a.m.-5 p.m.\n\nSat & Sun: 10 a.m.-2 p.m.\n\nClosed Most National Holidays\n\n\nBy Appointment Outside of Business Hours",
+                    style: TextStyle(
+                        letterSpacing: 1.1,
+                        wordSpacing: 1.1,
+                        fontSize: 10,
+                        fontWeight: FontWeight.w600),
+                  ),
+                  SizedBox(height: 20),
+                  Divider(
+                    color: Colors.black,
+                    thickness: 0.5,
+                  ),
+                  SizedBox(height: 20),
+                  Text(
+                    'At Lindbergh & Garabaldi\n\n515 S Lindbergh Blvd\n\nSt Louis MO 63131\n\n\nboxes@thesafedepositcompany.com',
+                    style: TextStyle(
+                        letterSpacing: 1.1,
+                        wordSpacing: 1.1,
+                        fontSize: 10,
+                        fontWeight: FontWeight.w600),
+                  ),
+                  Divider(
+                    color: Colors.black,
+                    thickness: 0.2,
+                  )
+                ],
               ),
-              SizedBox(height: 10),
-              Text(
-                "Phone: 314-991-3858",
-                style: TextStyle(
-                    fontSize: 13, fontWeight: FontWeight.w600),
-              ),
-              SizedBox(height: 10),
-              Text(
-                "Hours\n\nMon-Fri: 9 a.m.-5 p.m.\n\nSat & Sun: 10 a.m.-2 p.m.\n\nClosed Most National Holidays\n\n\nBy Appointment Outside of Business Hours",
-                style: TextStyle(
-                    letterSpacing: 1.1,
-                    wordSpacing: 1.1,
-                    fontSize: 10,
-                    fontWeight: FontWeight.w600),
-              ),
-              SizedBox(height: 20),
-              Divider(
-                color: Colors.black,
-                thickness: 0.5,
-              ),
-              SizedBox(height: 20),
-              Text(
-                'At Lindbergh & Garabaldi\n\n515 S Lindbergh Blvd\n\nSt Louis MO 63131\n\n\nboxes@thesafedepositcompany.com',
-                style: TextStyle(
-                    letterSpacing: 1.1,
-                    wordSpacing: 1.1,
-                    fontSize: 10,
-                    fontWeight: FontWeight.w600),
-              ),
-              Divider(
-                color: Colors.black,
-                thickness: 0.2,
-              )
-              ],),
             )),
           ),
-         
         ],
       ),
     );

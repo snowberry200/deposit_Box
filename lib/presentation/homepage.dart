@@ -1,10 +1,10 @@
-import 'package:deposit_company/layout/presentation/sign_in.dart';
+import 'package:deposit_company/presentation/sign_in.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import '../layout.dart';
+import '../layout/layout.dart';
 import 'register.dart';
-import '../../tabbars/contact.dart';
-import '../../tabbars/fandq.dart';
+import '../tabbars/contact.dart';
+import '../tabbars/fandq.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -24,6 +24,11 @@ class _HomePageState extends State<HomePage> {
             ? AppBar(
                 backgroundColor: const Color.fromARGB(255, 19, 42, 82),
                 leading: PopupMenuButton(
+                    shape: const BeveledRectangleBorder(
+                        side: BorderSide(
+                            color: CupertinoColors.systemBlue,
+                            width: 2),
+                        borderRadius: BorderRadius.all(Radius.circular(8))),
                     position: PopupMenuPosition.under,
                     icon: const Icon(Icons.menu),
                     elevation: 10,
@@ -33,7 +38,6 @@ class _HomePageState extends State<HomePage> {
                             value: 0,
                             child: Center(
                                 child: TextButton(
-                                  
                                     child: const Text(
                                       'Sign in',
                                       style: TextStyle(
@@ -46,7 +50,7 @@ class _HomePageState extends State<HomePage> {
                                       Navigator.of(context).push(
                                           MaterialPageRoute(
                                               builder: (context) =>
-                                                 const Accessscreen()));
+                                                  const AccessScreen()));
                                     })),
                           ),
                           PopupMenuItem<dynamic>(

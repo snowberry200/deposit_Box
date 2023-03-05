@@ -2,7 +2,6 @@
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
-import 'register.dart';
 
 // void main() {
 //   runApp(const MaterialApp(
@@ -34,16 +33,16 @@ class _passwordScreenState extends State<passwordScreen> {
               children: [
                 const Center(
                   child: Padding(
-                    padding: EdgeInsets.only(top: 60, bottom: 20),
+                    padding: EdgeInsets.only(top: 20, bottom: 20),
                     child: Icon(
                       Icons.lock,
                       color: Colors.black12,
-                      size: 60,
+                      size: 40,
                     ),
                   ),
                 ),
                 const Padding(
-                  padding: EdgeInsets.only(bottom: 40),
+                  padding: EdgeInsets.only(bottom: 20),
                   child: Text(
                     'Forgot password?',
                     style: TextStyle(
@@ -60,7 +59,7 @@ class _passwordScreenState extends State<passwordScreen> {
                       fontWeight: FontWeight.w300),
                 ),
                 const Padding(
-                  padding: EdgeInsets.only(bottom: 50),
+                  padding: EdgeInsets.only(bottom: 30),
                   child: Text(
                     'to send you password reset',
                     style: TextStyle(
@@ -145,7 +144,7 @@ class _passwordScreenState extends State<passwordScreen> {
                       child: ElevatedButton(
                         onPressed: () {
                           // Navigator.of(context).push(MaterialPageRoute(
-                          //     builder: (context) => const Accessscreen()));
+                          //     builder: (context) => const AccessScreen()));
 
                           //if email address passes,i.e in data base then...navigate to newPassword screen
                         },
@@ -185,7 +184,7 @@ class _passwordScreenState extends State<passwordScreen> {
                           Padding(
                             padding: const EdgeInsets.only(top: 25),
                             child: TextButton(
-                              onPressed: (){},
+                              onPressed: () {},
                               // (() => Navigator.of(context).push(
                               //     MaterialPageRoute(
                               //         builder: (context) =>

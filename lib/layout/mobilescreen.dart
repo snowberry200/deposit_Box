@@ -1,5 +1,9 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
+import '../tabbars/the_safe_deposiit_company.dart';
+import '../presentation/sign_in.dart';
 
 class MobileScreen extends StatefulWidget {
   const MobileScreen({
@@ -29,33 +33,57 @@ class _MobileScreenState extends State<MobileScreen> {
                   fontWeight: FontWeight.bold,
                 )),
             const SizedBox(
-              height: 50,
+              height: 30,
             ),
-            const Text.rich(TextSpan(
-                text: 'Home',
-                style: TextStyle(
-                    fontSize: 12, decoration: TextDecoration.underline))),
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => const AccessScreen()));
+              },
+              child: const Align(
+                alignment: Alignment.topLeft,
+                child: Text.rich(TextSpan(
+                    text: 'Home',
+                    style: TextStyle(
+                        fontSize: 12, decoration: TextDecoration.underline))),
+              ),
+            ),
             const SizedBox(
-              height: 40,
+              height: 20,
             ),
-            const Text.rich(TextSpan(
-                text: 'Safe Deposit Boxes',
-                style: TextStyle(
-                    fontSize: 12, decoration: TextDecoration.underline))),
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => const Scaffold(
+                        backgroundColor: CupertinoColors.lightBackgroundGray,
+                        body: SafeDepositCompany())));
+              },
+              child: const Align(
+                alignment: Alignment.topLeft,
+                child: Text.rich(TextSpan(
+                    text: 'Safe Deposit Company',
+                    style: TextStyle(
+                        fontSize: 12, decoration: TextDecoration.underline))),
+              ),
+            ),
             const SizedBox(
               height: 20,
             ),
             Container(
-              width: 250,
+              width: 200,
               height: 300,
-              decoration: const BoxDecoration(
+              decoration: const ShapeDecoration(
+                  shape: BeveledRectangleBorder(
+                      side: BorderSide(
+                          color: CupertinoColors.lightBackgroundGray, width: 2),
+                      borderRadius: BorderRadius.all(Radius.circular(15))),
                   image: DecorationImage(
-                filterQuality: FilterQuality.high,
-                image: AssetImage(
-                  "image/vaults.jpeg",
-                ),
-                fit: BoxFit.cover,
-              )),
+                    filterQuality: FilterQuality.high,
+                    image: AssetImage(
+                      "image/vaults.jpeg",
+                    ),
+                    fit: BoxFit.cover,
+                  )),
             ),
             const SizedBox(
               height: 10,
@@ -112,14 +140,17 @@ class _MobileScreenState extends State<MobileScreen> {
                 Container(
                   width: 350,
                   height: 300,
-                  decoration: const BoxDecoration(
+                  decoration:  const ShapeDecoration(
                       image: DecorationImage(
                     filterQuality: FilterQuality.high,
                     image: AssetImage(
                       "image/key.jpeg",
                     ),
                     fit: BoxFit.cover,
-                  )),
+                  ), shape: BeveledRectangleBorder(
+                      side: BorderSide(
+                          color: CupertinoColors.lightBackgroundGray, width: 2),
+                      borderRadius: BorderRadius.all(Radius.circular(15))),),
                 ),
                 const SizedBox(width: 30),
                 const Expanded(

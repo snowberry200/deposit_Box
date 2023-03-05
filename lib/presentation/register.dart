@@ -91,7 +91,7 @@ class _RegisterState extends State<Register> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: CupertinoColors.white,
+      backgroundColor: CupertinoColors.lightBackgroundGray,
       body: Padding(
         padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 20),
         child: ScrollConfiguration(
@@ -110,8 +110,8 @@ class _RegisterState extends State<Register> {
                   ),
                 )),
                 const Divider(
-                  color: CupertinoColors.lightBackgroundGray,
-                  thickness: 1,
+                  color: CupertinoColors.darkBackgroundGray,
+                  thickness: 0.2,
                   indent: 2,
                   height: 0,
                 ),
@@ -408,8 +408,8 @@ class _RegisterState extends State<Register> {
                             height: 20,
                           ),
                           const Divider(
-                            color: CupertinoColors.lightBackgroundGray,
-                            thickness: 1,
+                            color: CupertinoColors.darkBackgroundGray,
+                            thickness: 0.2,
                             indent: 2,
                             height: 0,
                           ),

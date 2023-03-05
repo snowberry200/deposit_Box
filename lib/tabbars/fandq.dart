@@ -13,7 +13,7 @@ class _FandQState extends State<FandQ> {
   Widget build(BuildContext context) {
     return Padding(
         padding:
-            const EdgeInsets.only(top: 0.0, bottom: 20, left: 20, right: 20),
+            const EdgeInsets.only(top: 20.0, bottom: 20, left: 20, right: 20),
         child: ScrollConfiguration(
           behavior: ScrollConfiguration.of(context).copyWith(scrollbars: false),
           child: Stack(
@@ -21,14 +21,28 @@ class _FandQState extends State<FandQ> {
               SizedBox(
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.start,
-                  children: const [
+                  children: [
+                    const SizedBox(
+                      height: 30,
+                    ),
                     Expanded(
                         flex: 4,
                         child: SizedBox(
-                          child: FandqListview(),
+                          child: Container(
+                              decoration: ShapeDecoration(
+                                  shape: BeveledRectangleBorder(
+                                side: const BorderSide(
+                                    color: CupertinoColors.lightBackgroundGray,
+                                    width: 2),
+                                borderRadius: BorderRadius.circular(15),
+                              )),
+                              child: const Padding(
+                                padding: EdgeInsets.only(right: 30, left: 30),
+                                child: FandqListview(),
+                              )),
                         )),
-                    SizedBox(width: 30),
-                    Expanded(
+                    const SizedBox(width: 30),
+                    const Expanded(
                       flex: 1,
                       child: SizedBox(),
                     ),
@@ -50,18 +64,26 @@ class FandqListview extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListView(
       children: [
+        const SizedBox(
+          height: 30,
+        ),
         const Text.rich(
             softWrap: true,
             TextSpan(
               text: 'FAQ',
               style: TextStyle(
                   letterSpacing: 1.2,
-                  fontSize: 35,
+                  fontSize: 25,
                   color: Colors.black,
                   fontWeight: FontWeight.bold),
             )),
-            const Divider(color: CupertinoColors.lightBackgroundGray,thickness: 1,indent: 2,
-            height: 0,),
+           const SizedBox(height: 10,),
+        const Divider(
+          color: CupertinoColors.lightBackgroundGray,
+          thickness: 1,
+          indent: 2,
+          height: 0,
+        ),
         const SizedBox(
           height: 30,
         ),
@@ -107,7 +129,7 @@ class FandqListview extends StatelessWidget {
         const Text('. What size boxes do you have?',
             style: TextStyle(
                 letterSpacing: 1.2,
-                fontSize: 35,
+                fontSize: 20,
                 color: Colors.black,
                 fontWeight: FontWeight.bold)),
         const SizedBox(height: 30),
@@ -217,7 +239,10 @@ class FandqListview extends StatelessWidget {
                 wordSpacing: 1.2,
                 fontSize: 14,
                 // fontStyle: FontStyle.italic,
-                color: Colors.black))
+                color: Colors.black)),
+        const SizedBox(
+          height: 30,
+        ),
       ],
     );
   }

@@ -2,20 +2,19 @@ import 'package:flutter/foundation.dart';
 
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter/cupertino.dart';
 
-import 'homepage.dart';
 import 'passwordreset.dart';
 
-class Accessscreen extends StatefulWidget {
-  const Accessscreen({Key? key}) : super(key: key);
+class AccessScreen extends StatefulWidget {
+  const AccessScreen({Key? key}) : super(key: key);
 
   @override
-  _AccessscreenState createState() => _AccessscreenState();
+  State<AccessScreen> createState() => _AccessScreenState();
 }
 
-class _AccessscreenState extends State<Accessscreen> {
+class _AccessScreenState extends State<AccessScreen> {
+  String message = 'click here to reset password';
   RegExp passValid = RegExp(r"(?=.*\d{2,4})(?=.*[A-Z])(?=.*\W)");
   bool passwordValidate(String pass) {
     String password = pass.trim();
@@ -34,7 +33,6 @@ class _AccessscreenState extends State<Accessscreen> {
   final cityController = TextEditingController();
   final dobController = TextEditingController();
   final firstnameController = TextEditingController();
-  final GlobalKey<FormState> _formkey = GlobalKey<FormState>();
   final lastnameController = TextEditingController();
   final numberController = TextEditingController();
   final regionController = TextEditingController();
@@ -60,105 +58,115 @@ class _AccessscreenState extends State<Accessscreen> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-        debugShowCheckedModeBanner: false,
-        home: Scaffold(
-            backgroundColor:  Colors.white,
-            body: 
-              SizedBox(
-                child: Column(
-                  children: [
-                    const Align(
-                      alignment: Alignment.topLeft,
-                      child: Padding(
-                        padding: EdgeInsets.fromLTRB(30, 30, 30, 10),
-                        child: Text(
-                          'Sign in',
-                          style: TextStyle(
-                              fontSize: 23, color: Colors.black54),
-                        ),
+    return 
+         Scaffold(
+          backgroundColor: Colors.white,
+          body: SizedBox(
+            child: Padding(
+              padding: const EdgeInsets.only(left:30.0, right:30),
+              child: Column(
+                children: [
+                  const Align(
+                    alignment: Alignment.topLeft,
+                    child: Padding(
+                      padding: EdgeInsets.fromLTRB(0, 30, 0, 10),
+                      child: Text(
+                        'Sign in',
+                        style: TextStyle(fontSize: 23, color: Colors.black54),
                       ),
                     ),
-                    const Align(
-                      alignment: Alignment.topLeft,
-                      child: Padding(
-                        padding: EdgeInsets.fromLTRB(30, 10, 30, 0),
-                        child: Text("Email Address",
-                            style: TextStyle(
-                                fontSize: 18, color: Colors.black54)),
-                      ),
+                  ),
+                  const Align(
+                    alignment: Alignment.topLeft,
+                    child: Padding(
+                      padding: EdgeInsets.fromLTRB(30, 10, 30, 0),
+                      child: Text("Email Address",
+                          style: TextStyle(fontSize: 14, color: Colors.black54)),
                     ),
-                    const SizedBox(height: 10),
-                    buildemail(),
-                    const SizedBox(
-                      height: 20,
-                    ),
-                    buildpasswoerd(),
-                    Row(
-                      children: [
-                      Padding(
-                        padding: const EdgeInsets.fromLTRB(30, 30, 30, 10),
-                        child: ElevatedButton(
-                            style: ElevatedButton.styleFrom(
-                              fixedSize: const Size(200, 50),
-                              backgroundColor: Colors.blueAccent,
-                              side: const BorderSide(
-                                  color: Color.fromARGB(255, 248, 238, 142), width: 2),
-                              shape: const BeveledRectangleBorder(
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(10))),
-                              shadowColor: Colors.black,
-                            ),
-                            onPressed: () { if (kDebugMode) {
-                                      print('Email:${emailController.text}');
-                                    }
-                                    if (kDebugMode) {
-                                      print('Password:${psswordController.text}');
-                                    }
-                                    final form = formkey.currentState!;
-                                    if (form.validate()) {
-                                      setState(() {});
-                                    }},
-                            child: const Padding(
-                              padding: EdgeInsets.all(10.0),
-                              child: Text('Sign in',style: TextStyle(fontSize: 16, color: Colors.white),),
-                            )),
-                      ),
-                      const Icon(
-                        CupertinoIcons.play_arrow_solid,opticalSize: 10,
-                          color: CupertinoColors.activeBlue),
-                      TextButton(
-                        onPressed: () {
-                          Navigator.of(context).push(MaterialPageRoute(
-                              builder: (context) =>
-                                  const passwordScreen()));
-                          if (kDebugMode) {
-                            print('Forgot password');
-                          }
-                        },
-                        child: const Padding(
-                          padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
-                          child: Tooltip(
-                            message:
-                                'click here to reset your password',
-                            textStyle: TextStyle(
-                                fontSize: 14,
-                                color: CupertinoColors.white),
+                  ),
+                  const SizedBox(height: 10),
+                  buildemail(),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  buildpasswoerd(),
+                  Row(children: [
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(30, 30, 30, 10),
+                      child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            fixedSize: const Size(200, 50),
+                            backgroundColor: Colors.blueAccent,
+                            side: const BorderSide(
+                                color: Color.fromARGB(255, 248, 238, 142),
+                                width: 2),
+                            shape: const BeveledRectangleBorder(
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(10))),
+                            shadowColor: Colors.black,
+                          ),
+                          onPressed: () {
+                            if (kDebugMode) {
+                              print('Email:${emailController.text}');
+                            }
+                            if (kDebugMode) {
+                              print('Password:${psswordController.text}');
+                            }
+                            final form = formkey.currentState!;
+                            if (form.validate()) {
+                              setState(() {});
+                            }
+                          },
+                          child: const Padding(
+                            padding: EdgeInsets.all(10.0),
                             child: Text(
-                              'Forgot password?',
-                              style: TextStyle(
-                                  fontSize: 14,
-                                  color: CupertinoColors.activeBlue),
+                              'Sign in',
+                              style: TextStyle(fontSize: 16, color: Colors.white),
                             ),
+                          )),
+                    ),
+                    // IconButton(
+                    //   hoverColor: Colors.transparent,
+                    //   icon: const Icon(CupertinoIcons.play_arrow_solid,
+                    //       opticalSize: 7, color: CupertinoColors.activeBlue),
+                    //   onPressed: () {
+                    //     Navigator.of(context).push(MaterialPageRoute(
+                    //         builder: (context) => const passwordScreen()));
+                    //   },
+                    // ),
+                    TextButton(
+                      onPressed: () {
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => const passwordScreen()));
+                        if (kDebugMode) {
+                          print('Forgot password');
+                        }
+                      },
+                      child: Padding(
+                        padding: const EdgeInsets.fromLTRB(10, 10, 10, 10),
+                        child: Tooltip(
+                          decoration: const BoxDecoration(
+                              color: CupertinoColors.lightBackgroundGray,
+                              borderRadius: BorderRadius.all(Radius.circular(5))),
+                          excludeFromSemantics: true,
+                          preferBelow: true,
+                          message: message,
+                          textStyle: const TextStyle(
+                              fontSize: 14, color: CupertinoColors.white),
+                          child: const Text(
+                            'Forgot password?',
+                            style: TextStyle(
+                                fontSize: 12, color: CupertinoColors.activeBlue),
                           ),
                         ),
-                      )
-                    ]),
-              
-                  ],
-                ),
+                      ),
+                    )
+                  ]),
+                ],
               ),
-            ));
+            ),
+          ),
+        );
   }
 
   phonenumbercheckbox(StateSetter setState) => Checkbox(
@@ -230,22 +238,29 @@ class _AccessscreenState extends State<Accessscreen> {
   buildpasswoerd() => Padding(
         padding: const EdgeInsets.fromLTRB(30, 0, 30, 0),
         child: TextFormField(
-          readOnly:false,
+          readOnly: false,
           textCapitalization: TextCapitalization.characters,
           autovalidateMode: AutovalidateMode.onUserInteraction,
           controller: psswordController,
-          validator: (pssword) {
-            if (pssword!.isNotEmpty && pssword.length < 6) {
-              return 'Please enter a correct password';
-            } else {
+          validator: (password) {
+            if (password!.isEmpty && password.length < 6) {
+              return 'Please enter password ';
+            }
+            bool result = passwordValidate(password);
+            if (result) {
               return null;
+            } else {
+              return 'please enter correct password';
             }
           },
           maxLength: 12,
           decoration: InputDecoration(
             border: const OutlineInputBorder(),
             labelText: 'password',
-            prefixIcon: const Icon(CupertinoIcons.lock, color: CupertinoColors.extraLightBackgroundGray,),
+            prefixIcon: const Icon(
+              CupertinoIcons.lock,
+              color: CupertinoColors.extraLightBackgroundGray,
+            ),
             suffixIcon: IconButton(
               hoverColor: Colors.transparent,
               icon: Tooltip(
@@ -253,8 +268,13 @@ class _AccessscreenState extends State<Accessscreen> {
                 textStyle:
                     const TextStyle(fontSize: 11, color: CupertinoColors.white),
                 child: isPasswordVissible
-                    ? const Icon(Icons.visibility_off,size:15,color: Colors.grey,)
-                    : const Icon(Icons.visibility,size:15,color: Colors.blueAccent),
+                    ? const Icon(
+                        Icons.visibility_off,
+                        size: 15,
+                        color: Colors.grey,
+                      )
+                    : const Icon(Icons.visibility,
+                        size: 15, color: Colors.blueAccent),
               ),
               onPressed: () =>
                   setState(() => isPasswordVissible = !isPasswordVissible),
@@ -273,7 +293,8 @@ class _AccessscreenState extends State<Accessscreen> {
           border: const OutlineInputBorder(),
           labelText: 'Email',
           // errorText: 'enter a correct Email Address',
-          prefixIcon: const Icon(Icons.email, color: CupertinoColors.extraLightBackgroundGray),
+          prefixIcon: const Icon(Icons.email,
+              color: CupertinoColors.extraLightBackgroundGray),
           prefixIconColor: Colors.brown,
           suffixIcon: emailController.text.isEmpty
               ? Container(width: 0)
@@ -288,21 +309,4 @@ class _AccessscreenState extends State<Accessscreen> {
         validator: (ifemail) =>
             !EmailValidator.validate(ifemail!) ? 'Enter a valid email' : null,
       ));
-
-  
-
-  // buildCheckboxListTile(Checkmarklist checkmark) => Padding(
-  //       padding: const EdgeInsets.fromLTRB(10, 0, 0, 0),
-  //       child: (CheckboxListTile(
-  //           value: checkmark.value,
-  //           tristate: true,
-  //           onChanged: (value) =>
-  //               setState(() => checkmark.value = !checkmark.value),
-  //           activeColor: CupertinoColors.white,
-  //           checkColor: CupertinoColors.destructiveRed,
-  //           controlAffinity: ListTileControlAffinity.leading,
-  //           title: Text(
-  //             checkmark.title,
-  //           ))),
-  //     );
 }
