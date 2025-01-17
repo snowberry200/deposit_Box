@@ -221,12 +221,12 @@ class _SafeDepositCompanyState extends State<SafeDepositCompany> {
                 ),
               )),
           const SizedBox(width: 40),
-          Expanded(
+          const Expanded(
             flex: 1,
             child: SizedBox(
                 child: SingleChildScrollView(
               child: Column(
-                children: const [
+                children: [
                   SizedBox(
                     height: 30,
                   ),

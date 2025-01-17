@@ -8,6 +8,7 @@
     "buildpasswoerd",
     "Chaminade",
     "citycheckbox",
+    "COCOAPODS",
     "dateof",
     "deposiit",
     "dobcheckbox",
@@ -19,6 +20,7 @@
     "fnamecheckbox",
     "formkey",
     "Garabaldi",
+    "HIDPI",
     "ifdob",
     "ifemail",
     "iflastname",
@@ -32,6 +34,8 @@
     "passwordcheckbox",
     "passwordreset",
     "phonenumbercheckbox",
+    "podfile",
+    "podhelper",
     "pssword",
     "regioncheckbox",
     "Registeration",
@@ -41,5 +45,6 @@
     "tabletscreen",
     "Vissible",
     "yello"
-  ]
+  ],
+  "cmake.sourceDirectory": "/Users/fiifi/development/flutter/examples/platform_channel/windows/runner"
 }

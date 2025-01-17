@@ -11,6 +11,12 @@ class Contact extends StatefulWidget {
 
 class _ContactState extends State<Contact> {
   late ScrollController scrollControllerOne, scrollControllerTwo;
+  final TextEditingController firstNameController = TextEditingController();
+  final TextEditingController lastNameController = TextEditingController();
+  final TextEditingController commentController = TextEditingController();
+
+  final TextEditingController _email = TextEditingController();
+  GlobalKey<FormState> formkey = GlobalKey<FormState>();
 
   @override
   void initState() {
@@ -21,6 +27,10 @@ class _ContactState extends State<Contact> {
 
   @override
   void dispose() {
+    firstNameController.dispose();
+    lastNameController.dispose();
+    commentController.dispose();
+    _email.dispose();
     scrollControllerOne.dispose();
     scrollControllerTwo.dispose();
     super.dispose();
@@ -45,13 +55,6 @@ class _ContactState extends State<Contact> {
       return false;
     }
   }
-
-  final TextEditingController firstNameController = TextEditingController();
-  final TextEditingController lastNameController = TextEditingController();
-  final TextEditingController commentController = TextEditingController();
-
-  final TextEditingController _email = TextEditingController();
-  GlobalKey<FormState> formkey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
@@ -104,8 +107,8 @@ class _ContactState extends State<Contact> {
                               color: Colors.black,
                               fontWeight: FontWeight.bold)),
                       const SizedBox(height: 20),
-                      Row(
-                        children: const [
+                      const Row(
+                        children: [
                           Text('Email:',
                               style: TextStyle(
                                   letterSpacing: 1.1,
@@ -135,6 +138,8 @@ class _ContactState extends State<Contact> {
                             SizedBox(
                               width: 400,
                               child: TextFormField(
+                                cursorErrorColor: Colors.lightGreenAccent,
+                                //forceErrorText: 'Please enter correct info',
                                 cursorColor: Colors.blue,
                                 enableIMEPersonalizedLearning: true,
                                 selectionControls:
@@ -157,11 +162,13 @@ class _ContactState extends State<Contact> {
                                       top: 0, bottom: 0, left: 10, right: 10),
                                 ),
                                 validator: (ifFirstName) {
-                                  if (ifFirstName != null &&
-                                      ifFirstName.length <= 3) {
-                                    return 'Please enter correct name';
+                                  if (ifFirstName!.isEmpty) {
+                                    return 'Can\'t be empty';
                                   }
-                                  bool result = firstNameValid(ifFirstName!);
+                                  if (ifFirstName.length <= 3) {
+                                    return 'Too short';
+                                  }
+                                  bool result = firstNameValid(ifFirstName);
                                   if (result) {
                                     return null;
                                   } else {
@@ -235,7 +242,7 @@ class _ContactState extends State<Contact> {
                                       border: OutlineInputBorder(
                                           borderRadius: BorderRadius.all(
                                               Radius.circular(0))),
-                                      labelText: 'Email Addess',
+                                      labelText: 'Email Address',
                                       contentPadding: EdgeInsets.all(10)),
                                   validator: (ifemail) =>
                                       !EmailValidator.validate(ifemail!)
@@ -303,8 +310,8 @@ class _ContactState extends State<Contact> {
                   child: ListView(
                     controller: scrollControllerTwo,
                     children: [
-                      Row(
-                        children: const [
+                      const Row(
+                        children: [
                           Icon(
                             Icons.forward,
                             color: Colors.grey,
@@ -345,8 +352,8 @@ class _ContactState extends State<Contact> {
                             )),
                       ),
                       const SizedBox(height: 20),
-                      Row(
-                        children: const [
+                      const Row(
+                        children: [
                           Icon(
                             Icons.forward,
                             color: Colors.grey,

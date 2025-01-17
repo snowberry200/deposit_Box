@@ -54,7 +54,8 @@ class _SubmitPaymentState extends State<SubmitPayment> {
                               style: ElevatedButton.styleFrom(
                                 backgroundColor: Colors.blueAccent,
                                 side: const BorderSide(
-                                    color: Color.fromARGB(255, 248, 238, 142), width: 2),
+                                    color: Color.fromARGB(255, 248, 238, 142),
+                                    width: 2),
                                 shape: const BeveledRectangleBorder(
                                     borderRadius:
                                         BorderRadius.all(Radius.circular(10))),
@@ -69,32 +70,33 @@ class _SubmitPaymentState extends State<SubmitPayment> {
                         const SizedBox(),
                       ],
                     ),
-                      const SizedBox(height: 80),
-                    const Text('Leave a Reply',style: TextStyle(
-                              letterSpacing: 1.2,
-                              wordSpacing: 1.2,
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.black)),
-                              const SizedBox(height:10),
+                    const SizedBox(height: 80),
+                    const Text('Leave a Reply',
+                        style: TextStyle(
+                            letterSpacing: 1.2,
+                            wordSpacing: 1.2,
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.black)),
+                    const SizedBox(height: 10),
                     const Text('You must be logged in to post a comment.',
-                     style: TextStyle(
-                              letterSpacing: 1.2,
-                              wordSpacing: 1.2,
-                              fontSize: 14,
-                              // fontStyle: FontStyle.italic,
-                              color: Colors.black))
+                        style: TextStyle(
+                            letterSpacing: 1.2,
+                            wordSpacing: 1.2,
+                            fontSize: 14,
+                            // fontStyle: FontStyle.italic,
+                            color: Colors.black))
                   ],
                 ),
               )),
           const SizedBox(width: 40),
-          Expanded(
+          const Expanded(
               flex: 1,
               child: SizedBox(
                 child: SingleChildScrollView(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
-                    children: const [
+                    children: [
                       Center(
                           child: Text('THE SAFE DEPOSIT COMPANY',
                               style: TextStyle(

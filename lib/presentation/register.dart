@@ -89,6 +89,18 @@ class _RegisterState extends State<Register> {
   }
 
   @override
+  void dispose() {
+    passwordController.dispose();
+    dobController.dispose();
+    emailController.dispose();
+    firstnameController.dispose();
+    lastnameController.dispose();
+    numberController.dispose();
+    stateController.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: CupertinoColors.lightBackgroundGray,
@@ -138,11 +150,13 @@ class _RegisterState extends State<Register> {
                                     TextCapitalization.characters,
                                 textInputAction: TextInputAction.next,
                                 validator: (ifFirstName) {
-                                  if (ifFirstName != null &&
-                                      ifFirstName.length <= 3) {
-                                    return 'Please enter correct name';
+                                  if (ifFirstName!.isEmpty) {
+                                    return 'Can\'t be empty';
                                   }
-                                  bool result = firstNameValid(ifFirstName!);
+                                  if (ifFirstName.length <= 3) {
+                                    return 'Too short';
+                                  }
+                                  bool result = firstNameValid(ifFirstName);
                                   if (result) {
                                     return null;
                                   } else {
@@ -390,7 +404,6 @@ class _RegisterState extends State<Register> {
                                   debugPrint(
                                       'Lastname:${lastnameController.text}');
                                   debugPrint('DOB:${dobController.text}');
-                                  // debugPrint('City:${cityController.text}');
                                   debugPrint('state:${stateController.text}');
                                   debugPrint('Phone:${numberController.text}');
 

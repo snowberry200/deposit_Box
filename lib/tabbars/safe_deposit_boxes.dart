@@ -57,7 +57,6 @@ class _SafeDepositBoxesState extends State<SafeDepositBoxes> {
                                         color: Colors.black,
                                         fontWeight: FontWeight.bold),
                                   )),
-                              
                               Align(
                                 alignment: Alignment.topLeft,
                                 child: TextButton(
@@ -84,9 +83,7 @@ class _SafeDepositBoxesState extends State<SafeDepositBoxes> {
                               Align(
                                 alignment: Alignment.topLeft,
                                 child: TextButton(
-                                  onPressed: () {
-                                    
-                                  },
+                                  onPressed: () {},
                                   child: const Text.rich(
                                     TextSpan(
                                       text: 'Safe Deposit Company',
@@ -130,10 +127,10 @@ class _SafeDepositBoxesState extends State<SafeDepositBoxes> {
                                             )),
                                       ),
                                       const SizedBox(width: 30),
-                                      Expanded(
+                                      const Expanded(
                                         child: SizedBox(
                                           child: Column(
-                                            children: const [
+                                            children: [
                                               Text(
                                                   'The Safe Deposit Company has over 1,000 safe deposit boxes of various sizes and a large room for media storage, located inside a secure vault and available to individuals and companies in the St. Louis Missouri area.',
                                                   style: TextStyle(

@@ -137,25 +137,30 @@ class _MobileScreenState extends State<MobileScreen> {
               padding: const EdgeInsets.only(right: 40.0, top: 0, bottom: 20),
               child:
                   Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
-                Container(
-                  width: 350,
-                  height: 300,
-                  decoration:  const ShapeDecoration(
+                Expanded(
+                  child: Container(
+                    width: 300,
+                    height: 300,
+                    decoration: const ShapeDecoration(
                       image: DecorationImage(
-                    filterQuality: FilterQuality.high,
-                    image: AssetImage(
-                      "image/key.jpeg",
+                        filterQuality: FilterQuality.high,
+                        image: AssetImage(
+                          "image/key.jpeg",
+                        ),
+                        fit: BoxFit.cover,
+                      ),
+                      shape: BeveledRectangleBorder(
+                          side: BorderSide(
+                              color: CupertinoColors.lightBackgroundGray,
+                              width: 2),
+                          borderRadius: BorderRadius.all(Radius.circular(15))),
                     ),
-                    fit: BoxFit.cover,
-                  ), shape: BeveledRectangleBorder(
-                      side: BorderSide(
-                          color: CupertinoColors.lightBackgroundGray, width: 2),
-                      borderRadius: BorderRadius.all(Radius.circular(15))),),
+                  ),
                 ),
-                const SizedBox(width: 30),
-                const Expanded(
-                  child: SizedBox(),
-                )
+                const SizedBox(width: 10),
+                // const Expanded(
+                //   child: SizedBox(),
+                // )
               ]),
             ),
             const SizedBox(height: 50),
