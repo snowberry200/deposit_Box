@@ -236,32 +236,6 @@ class _RegisterState extends State<Register> {
                                   }),
                             ),
                           ),
-                          // Padding(
-                          //   padding: const EdgeInsets.symmetric(vertical: 10),
-                          //   child: SizedBox(
-                          //     width: 300,
-                          //     child: TextFormField(
-                          //         autovalidateMode:
-                          //             AutovalidateMode.onUserInteraction,
-                          //         controller: cityController,
-                          //         decoration: InputDecoration(
-                          //             hintText: 'city name',
-                          //             border: OutlineInputBorder(
-                          //                 borderRadius:
-                          //                     BorderRadius.circular(10))),
-                          //         keyboardType: TextInputType.name,
-                          //         textCapitalization:
-                          //             TextCapitalization.characters,
-                          //         textInputAction: TextInputAction.next,
-                          //         validator: (ifCity) {
-                          //           if (ifCity != null && ifCity.length < 3) {
-                          //             return 'Please enter correct city name';
-                          //           } else {
-                          //             return null;
-                          //           }
-                          //         }),
-                          //   ),
-                          // ),
                           Padding(
                             padding: const EdgeInsets.symmetric(vertical: 10),
                             child: SizedBox(

@@ -129,15 +129,6 @@ class _AccessScreenState extends State<AccessScreen> {
                     ),
                   ),
                 ),
-                // IconButton(
-                //   hoverColor: Colors.transparent,
-                //   icon: const Icon(CupertinoIcons.play_arrow_solid,
-                //       opticalSize: 7, color: CupertinoColors.activeBlue),
-                //   onPressed: () {
-                //     Navigator.of(context).push(MaterialPageRoute(
-                //         builder: (context) => const passwordScreen()));
-                //   },
-                // ),
                 Expanded(
                   flex: 1,
                   child: SizedBox(
@@ -179,72 +170,6 @@ class _AccessScreenState extends State<AccessScreen> {
       ),
     );
   }
-
-  phonenumbercheckbox(StateSetter setState) => Checkbox(
-      value: isChecked7,
-      // ignore: non_constant_identifier_names
-      onChanged: (checked) => setState(() {
-            isChecked7 = !isChecked7;
-          }),
-      checkColor: CupertinoColors.white,
-      activeColor: CupertinoColors.activeGreen);
-
-  citycheckbox(StateSetter setState) => Checkbox(
-      value: isChecked6,
-      // ignore: non_constant_identifier_names
-      onChanged: (checked) => setState(() {
-            isChecked6 = !isChecked6;
-          }),
-      checkColor: CupertinoColors.white,
-      activeColor: CupertinoColors.activeGreen);
-
-  regioncheckbox(StateSetter setState) => Checkbox(
-      value: isChecked5,
-      // ignore: non_constant_identifier_names
-      onChanged: (checked) => setState(() {
-            isChecked5 = !isChecked5;
-          }),
-      checkColor: CupertinoColors.white,
-      activeColor: CupertinoColors.activeGreen);
-
-  passwordcheckbox(StateSetter setState) => Checkbox(
-      value: isChecked4,
-      onChanged: (checked) => setState(() {
-            isChecked4 = !isChecked4;
-          }),
-      checkColor: CupertinoColors.white,
-      activeColor: CupertinoColors.activeGreen);
-
-  emailcheckbox(StateSetter setState) => Checkbox(
-      value: isChecked3,
-      onChanged: (checked) => setState(() {
-            isChecked3 = !isChecked3;
-          }),
-      checkColor: CupertinoColors.white,
-      activeColor: CupertinoColors.activeGreen);
-
-  dobcheckbox(StateSetter setState) => Checkbox(
-      value: isChecked2,
-      onChanged: (checked) => setState(() {
-            isChecked2 = !isChecked2;
-          }),
-      checkColor: CupertinoColors.white,
-      activeColor: CupertinoColors.activeGreen);
-  lnamecheckbox(setState) => Checkbox(
-      value: isChecked1,
-      onChanged: (checked) => setState(() {
-            isChecked1 = !isChecked1;
-          }),
-      checkColor: CupertinoColors.white,
-      activeColor: CupertinoColors.activeGreen);
-
-  fnamecheckbox(setState) => Checkbox(
-      value: isChecked,
-      onChanged: (checked) => setState(() {
-            isChecked = !isChecked;
-          }),
-      checkColor: CupertinoColors.white,
-      activeColor: CupertinoColors.activeGreen);
 
   buildpasswoerd() => Padding(
         padding: const EdgeInsets.fromLTRB(0, 0, 30, 0),
