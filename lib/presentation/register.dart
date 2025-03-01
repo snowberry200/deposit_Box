@@ -105,7 +105,7 @@ class _RegisterState extends State<Register> {
     return Scaffold(
       backgroundColor: CupertinoColors.lightBackgroundGray,
       body: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 20),
+        padding: const EdgeInsets.symmetric(vertical: 30.0, horizontal: 20),
         child: ScrollConfiguration(
           behavior: ScrollConfiguration.of(context).copyWith(scrollbars: false),
           child: SingleChildScrollView(
