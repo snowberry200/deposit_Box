@@ -64,7 +64,7 @@ class _ContactState extends State<Contact> {
         child: Row(
           children: [
             Expanded(
-              flex: 3,
+              flex: 2,
               child: SizedBox(
                 child: ScrollConfiguration(
                   behavior: ScrollConfiguration.of(context)
@@ -331,9 +331,16 @@ class _ContactState extends State<Contact> {
                       Container(
                         width: 250,
                         height: 300,
-                        decoration: const ShapeDecoration(
+                        decoration: ShapeDecoration(
+                            shadows: List<BoxShadow>.from([
+                              const BoxShadow(
+                                  color: Colors.black,
+                                  blurRadius: 10,
+                                  spreadRadius: 5,
+                                  offset: Offset(0, 2))
+                            ]),
                             color: CupertinoColors.white,
-                            shape: BeveledRectangleBorder(
+                            shape: const BeveledRectangleBorder(
                                 side: BorderSide(
                                     color: CupertinoColors.lightBackgroundGray,
                                     width: 2),
@@ -343,7 +350,7 @@ class _ContactState extends State<Contact> {
                                   bottomLeft: Radius.circular(15),
                                   bottomRight: Radius.circular(15),
                                 )),
-                            image: DecorationImage(
+                            image: const DecorationImage(
                               filterQuality: FilterQuality.high,
                               image: AssetImage(
                                 "image/map.gif",
@@ -373,7 +380,14 @@ class _ContactState extends State<Contact> {
                       Container(
                         width: 250,
                         height: 300,
-                        decoration: const ShapeDecoration(
+                        decoration: ShapeDecoration(
+                            shadows: List<BoxShadow>.from([
+                              const BoxShadow(
+                                  color: Colors.black,
+                                  blurRadius: 10,
+                                  spreadRadius: 5,
+                                  offset: Offset(0, 2))
+                            ]),
                             color: CupertinoColors.white,
                             shape: BeveledRectangleBorder(
                                 side: BorderSide(

@@ -62,21 +62,22 @@ class _AccessScreenState extends State<AccessScreen> {
         child: Padding(
           padding: const EdgeInsets.only(left: 30.0, right: 30),
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               const Align(
                 alignment: Alignment.topLeft,
                 child: Padding(
-                  padding: EdgeInsets.fromLTRB(0, 30, 0, 10),
+                  padding: EdgeInsets.fromLTRB(0, 0, 0, 10),
                   child: Text(
                     'Sign in',
-                    style: TextStyle(fontSize: 23, color: Colors.black54),
+                    style: TextStyle(fontSize: 30, color: Colors.black54),
                   ),
                 ),
               ),
               const Align(
                 alignment: Alignment.topLeft,
                 child: Padding(
-                  padding: EdgeInsets.fromLTRB(30, 10, 30, 0),
+                  padding: EdgeInsets.fromLTRB(0, 10, 30, 0),
                   child: Text("Email Address",
                       style: TextStyle(fontSize: 14, color: Colors.black54)),
                 ),
@@ -88,39 +89,45 @@ class _AccessScreenState extends State<AccessScreen> {
               ),
               buildpasswoerd(),
               Row(children: [
-                Padding(
-                  padding: const EdgeInsets.fromLTRB(30, 30, 30, 10),
-                  child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        fixedSize: const Size(200, 50),
-                        backgroundColor: Colors.blueAccent,
-                        side: const BorderSide(
-                            color: Color.fromARGB(255, 248, 238, 142),
-                            width: 2),
-                        shape: const BeveledRectangleBorder(
-                            borderRadius:
-                                BorderRadius.all(Radius.circular(10))),
-                        shadowColor: Colors.black,
-                      ),
-                      onPressed: () {
-                        if (kDebugMode) {
-                          print('Email:${emailController.text}');
-                        }
-                        if (kDebugMode) {
-                          print('Password:${psswordController.text}');
-                        }
-                        final form = formkey.currentState!;
-                        if (form.validate()) {
-                          setState(() {});
-                        }
-                      },
-                      child: const Padding(
-                        padding: EdgeInsets.all(10.0),
-                        child: Text(
-                          'Sign in',
-                          style: TextStyle(fontSize: 16, color: Colors.white),
-                        ),
-                      )),
+                Expanded(
+                  flex: 1,
+                  child: Padding(
+                    padding: const EdgeInsets.fromLTRB(0, 10, 10, 10),
+                    child: SizedBox(
+                      child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            // fixedSize: const Size(200, 50),
+                            backgroundColor: Colors.blueAccent,
+                            side: const BorderSide(
+                                color: Color.fromARGB(255, 248, 238, 142),
+                                width: 2),
+                            shape: const BeveledRectangleBorder(
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(10))),
+                            shadowColor: Colors.black,
+                          ),
+                          onPressed: () {
+                            if (kDebugMode) {
+                              print('Email:${emailController.text}');
+                            }
+                            if (kDebugMode) {
+                              print('Password:${psswordController.text}');
+                            }
+                            final form = formkey.currentState!;
+                            if (form.validate()) {
+                              setState(() {});
+                            }
+                          },
+                          child: const Padding(
+                            padding: EdgeInsets.all(10.0),
+                            child: Text(
+                              'Sign in',
+                              style:
+                                  TextStyle(fontSize: 16, color: Colors.white),
+                            ),
+                          )),
+                    ),
+                  ),
                 ),
                 // IconButton(
                 //   hoverColor: Colors.transparent,
@@ -131,29 +138,36 @@ class _AccessScreenState extends State<AccessScreen> {
                 //         builder: (context) => const passwordScreen()));
                 //   },
                 // ),
-                TextButton(
-                  onPressed: () {
-                    Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => const passwordScreen()));
-                    if (kDebugMode) {
-                      print('Forgot password');
-                    }
-                  },
-                  child: Padding(
-                    padding: const EdgeInsets.fromLTRB(10, 10, 10, 10),
-                    child: Tooltip(
-                      decoration: const BoxDecoration(
-                          color: CupertinoColors.lightBackgroundGray,
-                          borderRadius: BorderRadius.all(Radius.circular(5))),
-                      excludeFromSemantics: true,
-                      preferBelow: true,
-                      message: message,
-                      textStyle: const TextStyle(
-                          fontSize: 14, color: CupertinoColors.white),
-                      child: const Text(
-                        'Forgot password?',
-                        style: TextStyle(
-                            fontSize: 12, color: CupertinoColors.activeBlue),
+                Expanded(
+                  flex: 1,
+                  child: SizedBox(
+                    child: TextButton(
+                      onPressed: () {
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => const passwordScreen()));
+                        if (kDebugMode) {
+                          print('Forgot password');
+                        }
+                      },
+                      child: Padding(
+                        padding: const EdgeInsets.fromLTRB(10, 10, 10, 10),
+                        child: Tooltip(
+                          decoration: const BoxDecoration(
+                              color: CupertinoColors.lightBackgroundGray,
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(5))),
+                          excludeFromSemantics: true,
+                          preferBelow: true,
+                          message: message,
+                          textStyle: const TextStyle(
+                              fontSize: 14, color: CupertinoColors.white),
+                          child: const Text(
+                            'Forgot password?',
+                            style: TextStyle(
+                                fontSize: 12,
+                                color: CupertinoColors.activeBlue),
+                          ),
+                        ),
                       ),
                     ),
                   ),
@@ -233,7 +247,7 @@ class _AccessScreenState extends State<AccessScreen> {
       activeColor: CupertinoColors.activeGreen);
 
   buildpasswoerd() => Padding(
-        padding: const EdgeInsets.fromLTRB(30, 0, 30, 0),
+        padding: const EdgeInsets.fromLTRB(0, 0, 30, 0),
         child: TextFormField(
           readOnly: false,
           textCapitalization: TextCapitalization.characters,
@@ -282,7 +296,7 @@ class _AccessScreenState extends State<AccessScreen> {
       );
 
   buildemail() => Padding(
-      padding: const EdgeInsets.fromLTRB(30, 10, 30, 0),
+      padding: const EdgeInsets.fromLTRB(0, 10, 30, 0),
       child: TextFormField(
         autovalidateMode: AutovalidateMode.onUserInteraction,
         controller: emailController,

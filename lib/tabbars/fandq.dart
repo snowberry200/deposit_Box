@@ -18,35 +18,33 @@ class _FandQState extends State<FandQ> {
           behavior: ScrollConfiguration.of(context).copyWith(scrollbars: false),
           child: Stack(
             children: [
-              SizedBox(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    const SizedBox(
-                      height: 30,
-                    ),
-                    Expanded(
-                        flex: 4,
-                        child: SizedBox(
-                          child: Container(
-                              decoration: ShapeDecoration(
-                                  shape: BeveledRectangleBorder(
-                                side: const BorderSide(
-                                    color: CupertinoColors.lightBackgroundGray,
-                                    width: 2),
-                                borderRadius: BorderRadius.circular(15),
-                              )),
-                              child: const Padding(
-                                padding: EdgeInsets.only(right: 30, left: 30),
-                                child: FandqListview(),
-                              )),
-                        )),
-                    const SizedBox(width: 30),
-                    const Expanded(
-                      flex: 1,
-                      child: SizedBox(),
-                    ),
-                  ],
+              Padding(
+                padding: const EdgeInsets.only(top: 20.0),
+                child: SizedBox(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      const SizedBox(
+                        height: 30,
+                      ),
+                      Expanded(
+                          // flex: 4,
+                          child: SizedBox(
+                        child: Container(
+                            decoration: ShapeDecoration(
+                                shape: BeveledRectangleBorder(
+                              side: const BorderSide(
+                                  color: CupertinoColors.lightBackgroundGray,
+                                  width: 2),
+                              borderRadius: BorderRadius.circular(15),
+                            )),
+                            child: const Padding(
+                              padding: EdgeInsets.only(right: 30, left: 30),
+                              child: FandqListview(),
+                            )),
+                      )),
+                    ],
+                  ),
                 ),
               ),
             ],
@@ -77,7 +75,9 @@ class FandqListview extends StatelessWidget {
                   color: Colors.black,
                   fontWeight: FontWeight.bold),
             )),
-           const SizedBox(height: 10,),
+        const SizedBox(
+          height: 10,
+        ),
         const Divider(
           color: CupertinoColors.lightBackgroundGray,
           thickness: 1,
@@ -129,7 +129,7 @@ class FandqListview extends StatelessWidget {
         const Text('. What size boxes do you have?',
             style: TextStyle(
                 letterSpacing: 1.2,
-                fontSize: 20,
+                fontSize: 18,
                 color: Colors.black,
                 fontWeight: FontWeight.bold)),
         const SizedBox(height: 30),

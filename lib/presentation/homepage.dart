@@ -26,11 +26,13 @@ class _HomePageState extends State<HomePage> {
                 leading: PopupMenuButton(
                     shape: const BeveledRectangleBorder(
                         side: BorderSide(
-                            color: CupertinoColors.systemBlue,
-                            width: 2),
-                        borderRadius: BorderRadius.all(Radius.circular(8))),
+                            color: CupertinoColors.transparent, width: 1),
+                        borderRadius: BorderRadius.all(Radius.circular(4))),
                     position: PopupMenuPosition.under,
-                    icon: const Icon(Icons.menu),
+                    icon: const Icon(
+                      Icons.menu,
+                      color: Colors.white,
+                    ),
                     elevation: 10,
                     itemBuilder: (context) => [
                           PopupMenuItem<dynamic>(
@@ -53,7 +55,7 @@ class _HomePageState extends State<HomePage> {
                                                   const AccessScreen()));
                                     })),
                           ),
-                          PopupMenuItem<dynamic>(
+                          PopupMenuItem<int>(
                             mouseCursor: MouseCursor.defer,
                             value: 1,
                             child: Center(

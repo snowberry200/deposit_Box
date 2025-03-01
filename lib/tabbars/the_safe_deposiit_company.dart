@@ -36,7 +36,7 @@ class _SafeDepositCompanyState extends State<SafeDepositCompany> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Expanded(
-              flex: 3,
+              flex: 2,
               child: SizedBox(
                 child: ScrollConfiguration(
                   behavior: ScrollConfiguration.of(context)
@@ -68,23 +68,26 @@ class _SafeDepositCompanyState extends State<SafeDepositCompany> {
                         height: 30,
                       ),
                       TextButton(
+                        statesController: WidgetStatesController(),
                         onPressed: () {
                           Navigator.of(context).push(MaterialPageRoute(
                               builder: (context) => const Register()));
                         },
-                        child: const Align(
+                        child: Align(
                           alignment: Alignment.topLeft,
                           child: Text.rich(
                             TextSpan(
                               text: 'Register',
                               style: TextStyle(
                                   backgroundColor: Colors.transparent,
-                                  letterSpacing: 1.2,
-                                  fontSize: 15,
+                                  letterSpacing: 1.1,
+                                  fontSize: 17,
                                   //decorationStyle: TextDecorationStyle.wavy,
                                   color: Colors.blueAccent,
                                   fontWeight: FontWeight.w500,
-                                  decoration: TextDecoration.underline),
+                                  decoration: TextDecoration.combine([
+                                    TextDecoration.underline,
+                                  ])),
                             ),
                           ),
                         ),
@@ -99,7 +102,7 @@ class _SafeDepositCompanyState extends State<SafeDepositCompany> {
                               //decorationStyle: TextDecorationStyle.wavy,
                               color: Colors.black,
                               fontWeight: FontWeight.w500,
-                              decoration: TextDecoration.underline),
+                              decoration: TextDecoration.none),
                         ),
                       ),
                       const SizedBox(height: 30),
@@ -168,26 +171,41 @@ class _SafeDepositCompanyState extends State<SafeDepositCompany> {
                                 child: SizedBox(
                                     child: Row(
                                   children: [
-                                    Container(
-                                      width:
-                                          Layout.isMobile(context) ? 250 : 300,
-                                      height: 350,
-                                      decoration: ShapeDecoration(
-                                          shape: BeveledRectangleBorder(
-                                            side: const BorderSide(
-                                                color: CupertinoColors
-                                                    .lightBackgroundGray,
-                                                width: 2),
-                                            borderRadius:
-                                                BorderRadius.circular(15),
-                                          ),
-                                          image: const DecorationImage(
-                                            filterQuality: FilterQuality.high,
-                                            image: AssetImage(
-                                              "image/black.jpeg",
-                                            ),
-                                            fit: BoxFit.cover,
-                                          )),
+                                    Expanded(
+                                      flex: 1,
+                                      child: Padding(
+                                        padding: const EdgeInsets.all(8.0),
+                                        child: Container(
+                                          width: Layout.isMobile(context)
+                                              ? 300
+                                              : 350,
+                                          height: 350,
+                                          decoration: ShapeDecoration(
+                                              shadows: List<BoxShadow>.from([
+                                                const BoxShadow(
+                                                    color: Colors.black,
+                                                    blurRadius: 10,
+                                                    spreadRadius: 5,
+                                                    offset: Offset(0, 2))
+                                              ]),
+                                              shape: BeveledRectangleBorder(
+                                                side: const BorderSide(
+                                                    color: CupertinoColors
+                                                        .lightBackgroundGray,
+                                                    width: 0),
+                                                borderRadius:
+                                                    BorderRadius.circular(15),
+                                              ),
+                                              image: const DecorationImage(
+                                                filterQuality:
+                                                    FilterQuality.high,
+                                                image: AssetImage(
+                                                  "image/black.jpeg",
+                                                ),
+                                                fit: BoxFit.cover,
+                                              )),
+                                        ),
+                                      ),
                                     ),
                                     const SizedBox(width: 15),
                                     const SizedBox()

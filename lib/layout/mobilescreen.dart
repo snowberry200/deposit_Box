@@ -45,7 +45,7 @@ class _MobileScreenState extends State<MobileScreen> {
                 child: Text.rich(TextSpan(
                     text: 'Home',
                     style: TextStyle(
-                        fontSize: 12, decoration: TextDecoration.underline))),
+                        fontSize: 14, decoration: TextDecoration.underline))),
               ),
             ),
             const SizedBox(
@@ -63,7 +63,7 @@ class _MobileScreenState extends State<MobileScreen> {
                 child: Text.rich(TextSpan(
                     text: 'Safe Deposit Company',
                     style: TextStyle(
-                        fontSize: 12, decoration: TextDecoration.underline))),
+                        fontSize: 14, decoration: TextDecoration.underline))),
               ),
             ),
             const SizedBox(
@@ -73,10 +73,18 @@ class _MobileScreenState extends State<MobileScreen> {
               width: 200,
               height: 300,
               decoration: const ShapeDecoration(
+                  shadows: [
+                    BoxShadow(
+                      color: CupertinoColors.systemGrey,
+                      blurRadius: 10,
+                      spreadRadius: 5,
+                      offset: Offset(0, 3),
+                    )
+                  ],
                   shape: BeveledRectangleBorder(
                       side: BorderSide(
-                          color: CupertinoColors.lightBackgroundGray, width: 2),
-                      borderRadius: BorderRadius.all(Radius.circular(15))),
+                          color: CupertinoColors.lightBackgroundGray, width: 1),
+                      borderRadius: BorderRadius.all(Radius.circular(10))),
                   image: DecorationImage(
                     filterQuality: FilterQuality.high,
                     image: AssetImage(
