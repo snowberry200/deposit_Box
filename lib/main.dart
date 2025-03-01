@@ -1,14 +1,8 @@
-import 'package:device_preview_plus/device_preview_plus.dart';
 import 'package:flutter/material.dart';
 import 'presentation/homepage.dart';
 
 void main() {
-  runApp(DevicePreview(
-      enabled: true,
-      tools: const [
-        ...DevicePreview.defaultTools,
-      ],
-      builder: (context) => const DepositBox()));
+  runApp(const DepositBox());
 }
 
 class DepositBox extends StatefulWidget {

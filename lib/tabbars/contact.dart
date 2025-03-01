@@ -389,7 +389,7 @@ class _ContactState extends State<Contact> {
                                   offset: Offset(0, 2))
                             ]),
                             color: CupertinoColors.white,
-                            shape: BeveledRectangleBorder(
+                            shape: const BeveledRectangleBorder(
                                 side: BorderSide(
                                     color: CupertinoColors.lightBackgroundGray,
                                     width: 2),
@@ -399,7 +399,7 @@ class _ContactState extends State<Contact> {
                                   bottomLeft: Radius.circular(15),
                                   bottomRight: Radius.circular(15),
                                 )),
-                            image: DecorationImage(
+                            image: const DecorationImage(
                               filterQuality: FilterQuality.high,
                               image: AssetImage(
                                 "image/entrance.jpeg",
